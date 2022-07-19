@@ -3,7 +3,7 @@
 
 
 /**
- * create_null_point_node - creates an empty node to insert
+ * create_null_point_node_left - creates an empty node to insert
  * @value: value to put in the new node
  * Return: pointer to empty node or NULL if failure
  */
@@ -24,7 +24,7 @@ binary_tree_t *create_null_point_node_left(int value)
 }
 
 /**
- * binary_tree_node - inserts a node as the left-child of another node
+ * binary_tree_insert_left - inserts a node as the left-child of another node
  * @parent: pointer to the parent node of the node to create
  * @value:  value to put in the new node
  * Return: pointer to new node or NULL on failure
