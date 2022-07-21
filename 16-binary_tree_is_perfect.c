@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-#include <stdio.h>
 
 /**
  * tree_subset_height - measures the height of a binary tree
@@ -84,7 +83,6 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	int is_tree_balanced = (binary_tree_balance(tree) == 0) ? 1 : 0;
 	int is_tree_full = binary_tree_is_full(tree);
 
-	printf("b: %d\nf: %d\n",is_tree_balanced, is_tree_full);
 	if (!tree)
 		return (0);
 	return (is_tree_balanced & is_tree_full);
