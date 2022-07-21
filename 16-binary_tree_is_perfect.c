@@ -1,4 +1,6 @@
 #include "binary_trees.h"
+#include <stdio.h>
+#define FAIL_MATCH 999999
 
 /**
  * is_node_a_leaf - checks if node is leaf
@@ -27,6 +29,8 @@ size_t tree_subset_height(const binary_tree_t *tree)
 	left = tree_subset_height(tree->left);
 	right = tree_subset_height(tree->right);
 
+	if (left != right)
+		return (FAIL_MATCH);
 	if (left >= right)
 		return (1 + left);
 	return (1 + right);
@@ -47,6 +51,8 @@ int binary_tree_balance(const binary_tree_t *tree)
 	left_sub_height = tree_subset_height(tree->left);
 	right_sub_height = tree_subset_height(tree->right);
 
+	if (left_sub_height >= FAIL_MATCH || right_sub_height >= FAIL_MATCH)
+		return (-1);
 	return (left_sub_height - right_sub_height);
 }
 
@@ -82,6 +88,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	int is_tree_balanced = (binary_tree_balance(tree) == 0) ? 1 : 0;
 	int is_tree_full = binary_tree_is_full(tree);
+
 
 	if (!tree)
 		return (0);
