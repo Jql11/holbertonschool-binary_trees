@@ -81,19 +81,11 @@ int binary_tree_is_full(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int is_tree_balanced = 0;
-	int is_tree_full = 0;
+	int is_tree_balanced = (binary_tree_balance(tree) == 0) ? 1 : 0;
+	int is_tree_full = binary_tree_is_full(tree);
 
+	printf("b: %d\nf: %d\n",is_tree_balanced, is_tree_full);
 	if (!tree)
 		return (0);
-
-	if (tree->left == NULL && tree->right == NULL)
-		return (1);
-
-	is_tree_balanced = binary_tree_balance(tree);
-	is_tree_full = binary_tree_is_full(tree);
-
-	if (is_tree_balanced == 0 && is_tree_full == 1)
-		return (1);
-	return (0);
+	return (is_tree_balanced & is_tree_full);
 }
